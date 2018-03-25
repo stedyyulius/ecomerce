@@ -11,7 +11,6 @@ class App extends Component {
     }
   }
 
-
   addTodo(e) {
     if (e === 'Enter') {
       let todo = this.state.todos;
@@ -45,7 +44,8 @@ class App extends Component {
         <h1>Todo tes</h1>
         <input
           onChange={(e)=> this.setState({task:e.target.value})}
-          type="text" onKeyPress={(e)=> this.addTodo(e.key)}
+          type="text"
+          onKeyPress={(e)=> this.addTodo(e.key)}
           ref="task"/>
         {this.state.todos.map((todo,i)=>
           <div key={i}>
