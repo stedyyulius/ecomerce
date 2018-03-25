@@ -19,7 +19,6 @@ class App extends Component {
       this.setState({
         todos: todo
       })
-      console.log(this.refs)
       this.refs.task.value = '';
     }
   }
@@ -57,7 +56,6 @@ class App extends Component {
             }
           </div>
         )}
-        {/* <button onClick={()=> this.addTodo()}>Add todo</button> */}
       </div>
     );
   }
