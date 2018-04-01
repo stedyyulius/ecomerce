@@ -1,62 +1,37 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 import './App.css';
+
+import Navbar from './Navbar'
+import Footer from './Footer'
+import Home from './Home'
+import About from './About'
 
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state= {
-      todos: [],
-      task: '',
-      edit: ''
-    }
-  }
-
-  addTodo(e) {
-    if (e === 'Enter') {
-      let todo = this.state.todos;
-      todo.push(this.state.task);
-      this.setState({
-        todos: todo
-      })
-      this.refs.task.value = '';
-    }
-  }
-
-  deleteTodo(i) {
-    let todo = this.state.todos
-    todo.splice(i,1)
-    this.setState({
-      todos: todo
-    })
-  }
-
-  editTodo(value, i) {
-    let todo = this.state.todos
-    todo[i] = value
-    this.setState({
-      todos: todo
-    })
+    this.state= {}
   }
 
   render() {
     return (
-      <div className="App">
-        <h1>Todo tes</h1>
-        <input
-          onChange={(e)=> this.setState({task:e.target.value})}
-          type="text"
-          onKeyPress={(e)=> this.addTodo(e.key)}
-          ref="task"/>
-        {this.state.todos.map((todo,i)=>
-          <div key={i}>
-            <p onClick={()=> this.setState({edit:i})}>{todo} <button onClick={()=>this.deleteTodo(i)}>X</button></p>
-            {(this.state.edit === i)
-              ? <input onChange={(e)=> this.editTodo(e.target.value, i)} type="text" />
-              : null
-            }
-          </div>
-        )}
-      </div>
+      <BrowserRouter>
+        <div>
+          <Navbar />
+          <Switch>
+            <Route
+              exact path="/"
+              component={Home}
+            />
+            <Route
+              exact path="/about"
+              component={About}
+            />
+          </Switch>
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }
