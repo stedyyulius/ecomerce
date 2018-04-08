@@ -11,9 +11,9 @@ class Cart extends Component {
 
   render() {
     return (
-      <div>
+      <div className="col-md-12">
         {(this.props.cart.map((c, index)=>
-          <div className="col-md-3 product-men" key={index}>
+          <div className="col-md-1 product-men" key={index}>
               <p>Name: {c.name}</p>
               <p>price: {c.price}</p>
               <img src={c.image} />
@@ -25,9 +25,7 @@ class Cart extends Component {
 }
 
 const mapStateToProps = (state) => {
-  cart.push(state.cart)
   return {
-    input: state.input,
     cart: state.cart
   }
 }
