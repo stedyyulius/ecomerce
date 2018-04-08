@@ -1457,6 +1457,7 @@ button.w3view-cart {
     position: relative;
     box-shadow: 0px 0px 15px 0px #D6D6D6;
     padding-bottom: 20px;
+		height: 300px;
 }
 .men-thumb-item {
     position: relative;
@@ -1480,6 +1481,9 @@ button.w3view-cart {
 .men-thumb-item .pro-image-front {
     opacity: 1;
     visibility: visible;
+		height: 160px;
+		display: block;
+		margin: auto;
 }
 .men-thumb-item img {
     transition: all 0.5s ease-out 0s;

@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 import currencyFormatter from 'currency-formatter'
 
+import { addToCart } from '../actions'
+
 var dummy = [
   {
     name: 'kaos item',
@@ -39,7 +41,17 @@ var dummy = [
 class Item extends Component {
   constructor(props){
     super(props)
-    this.state={}
+    this.state={
+      cart: []
+    }
+  }
+
+  addToCart(item) {
+    const newCart = this.state.cart
+    newCart.push(item)
+    this.setState({
+      cart: newCart
+    })
   }
 
   render() {
@@ -47,7 +59,7 @@ class Item extends Component {
       <div className="tab3">
       {dummy.map((item, index)=>
       (item.category.includes(this.props.input))
-      ? <div className="col-md-3 product-men">
+      ? <div className="col-md-3 product-men" key={index}>
           <div className="men-pro-item simpleCart_shelfItem">
             <div className="men-thumb-item">
               <img src={item.image} alt="" className="pro-image-front" />
@@ -64,7 +76,6 @@ class Item extends Component {
                 <span className="item_price">{currencyFormatter.format(item.price, { code: 'IDR' })}</span>
               </div>
               <div className="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                <form action="#" method="post">
                   <fieldset>
                     <input type="hidden" name="cmd" value="_cart" />
                     <input type="hidden" name="add" value="1" />
@@ -75,9 +86,8 @@ class Item extends Component {
                     <input type="hidden" name="currency_code" value="USD" />
                     <input type="hidden" name="return" value=" " />
                     <input type="hidden" name="cancel_return" value=" " />
-                    <input type="submit" name="submit" value="Add to cart" className="button" />
+                    <input type="submit" value="Add to cart" className="button" onClick={()=> this.props.addToCart(this.props.cart, item)}/>
                   </fieldset>
-                </form>
               </div>
             </div>
           </div>
@@ -92,13 +102,14 @@ class Item extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    input: state.input
+    input: state.input,
+    cart: state.cart
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    addToCart: (cart, item) => dispatch(addToCart(cart, item))
   }
 }
 

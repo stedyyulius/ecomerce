@@ -145,7 +145,7 @@ class Navbar extends Component {
                           <li><a href="typography.html">Typography</a></li>
                         </ul>
                   </li>
-                  <li className=" menu__item"><a className="menu__link" href="contact.html">Contact</a></li>
+                  <li className=" menu__item"><a className="menu__link" href="/cart">Checkout</a></li>
                   </ul>
                 </div>
                 </div>

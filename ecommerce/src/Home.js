@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import Item from './components/Item'
+import Cart from './components/Cart'
 
 class Home extends Component {
   constructor(props){
@@ -138,6 +139,7 @@ class Home extends Component {
         						</div>
 
         						<div className="tab2">
+                    <Cart />
         						</div>
                     <Item />
         					</div>

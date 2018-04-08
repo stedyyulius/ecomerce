@@ -13,7 +13,7 @@ class Todo extends Component {
   addTodo(e) {
     if (e === 'Enter') {
       let todo = this.state.todos;
-      todo.push(sha256(this.state.task + new Date().getTime()));
+      todo.push(\this.state.task + new Date().getTime());
       this.setState({
         todos: todo
       })
