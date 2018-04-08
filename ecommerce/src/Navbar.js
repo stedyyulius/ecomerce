@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+import { assignInput } from './actions'
 
 class Navbar extends Component {
   constructor(props) {
     super(props)
     this.state={}
   }
+
   render() {
     return(
       <div>
@@ -13,7 +17,7 @@ class Navbar extends Component {
           <div className="header-bot_inner_wthreeinfo_header_mid">
             <div className="col-md-4 header-middle">
               <form action="#" method="post">
-                  <input type="search" name="search" placeholder="Search here..." required="" />
+                  <input type="search" name="search" placeholder="Search here..." required="" onChange={(e) => this.props.assignInput(e.target.value)}/>
                   <input type="submit" value=" " />
                 <div className="clearfix"></div>
               </form>
@@ -63,10 +67,10 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                   <ul className="nav navbar-nav menu__list">
                   <li className="active menu__item menu__item--current">
-                    <Link className="menu__link" to="/">Home <span className="sr-only">(current)</span></Link>
+                    <Link className="menu__link" to="/stedy-shop">Home <span className="sr-only">(current)</span></Link>
                   </li>
                   <li className=" menu__item">
-                    <Link className="menu__link" to="/about">About</Link>
+                    <Link className="menu__link" to="/stedy-shop/about">About</Link>
                   </li>
                   <li className="dropdown menu__item">
                     <a href="#" className="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Men's wear <span className="caret"></span></a>
@@ -166,4 +170,17 @@ class Navbar extends Component {
     )
   }
 }
-export default Navbar
+
+const mapStateToProps = (state) => {
+  return {
+
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    assignInput: (input) => dispatch(assignInput(input))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
