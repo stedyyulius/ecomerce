@@ -108,14 +108,12 @@ class Navbar extends Component {
                       </ul>
                   </li>
                   <li className="dropdown menu__item">
-                    <a href="#" className="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cart ({this.props.cart.length}Item)<span className="caret"></span></a>
+                    <a className="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cart ({this.props.cart.length}Item)<span className="caret"></span></a>
                       <ul className="dropdown-menu multi-column columns-3">
                         <div className="agile_inner_drop_nav_info">
                           <Cart />
                           <div className="col-sm-6 multi-gd-img multi-gd-text ">
-                            <a href="womens.html"><img src="images/top1.jpg" alt=" "/></a>
                           </div>
-                          <div className="clearfix"></div>
                         </div>
                       </ul>
                   </li>

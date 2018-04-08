@@ -17,8 +17,10 @@ export const addToCart = (cart, item) => {
 }
 
 export const deleteCart = (cart, index) => {
-  let newCart = [
-    ...cart.slice(0, index)
+  let newCart = cart
+  newCart.splice(index, 1)
+  newCart = [
+    ...newCart
   ]
   return {
     type: 'Cart',
