@@ -2,14 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import Item from './components/Item'
-import Cart from './components/Cart'
 
 class Home extends Component {
   constructor(props){
     super(props)
     this.state={}
   }
-  render(){
+  render() {
     return (
         <div>
       		<div className="modal fade" id="myModal" tabIndex="-1" role="dialog">
@@ -139,7 +138,6 @@ class Home extends Component {
         						</div>
 
         						<div className="tab2">
-                    <Cart />
         						</div>
                     <Item />
         					</div>

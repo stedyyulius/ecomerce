@@ -15,3 +15,13 @@ export const addToCart = (cart, item) => {
     payload: newCart,
   }
 }
+
+export const deleteCart = (cart, index) => {
+  let newCart = [
+    ...cart.slice(0, index)
+  ]
+  return {
+    type: 'Cart',
+    payload: newCart,
+  }
+}

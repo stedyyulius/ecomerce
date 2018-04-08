@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import { assignInput } from './actions'
 
+import Cart from './components/Cart'
+
 class Navbar extends Component {
   constructor(props) {
     super(props)
@@ -106,31 +108,10 @@ class Navbar extends Component {
                       </ul>
                   </li>
                   <li className="dropdown menu__item">
-                    <a href="#" className="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Women's wear <span className="caret"></span></a>
+                    <a href="#" className="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cart ({this.props.cart.length}Item)<span className="caret"></span></a>
                       <ul className="dropdown-menu multi-column columns-3">
                         <div className="agile_inner_drop_nav_info">
-                          <div className="col-sm-3 multi-gd-img">
-                            <ul className="multi-column-dropdown">
-                              <li><a href="womens.html">Clothing</a></li>
-                              <li><a href="womens.html">Wallets</a></li>
-                              <li><a href="womens.html">Footwear</a></li>
-                              <li><a href="womens.html">Watches</a></li>
-                              <li><a href="womens.html">Accessories</a></li>
-                              <li><a href="womens.html">Bags</a></li>
-                              <li><a href="womens.html">Caps & Hats</a></li>
-                            </ul>
-                          </div>
-                          <div className="col-sm-3 multi-gd-img">
-                            <ul className="multi-column-dropdown">
-                              <li><a href="womens.html">Jewellery</a></li>
-                              <li><a href="womens.html">Sunglasses</a></li>
-                              <li><a href="womens.html">Perfumes</a></li>
-                              <li><a href="womens.html">Beauty</a></li>
-                              <li><a href="womens.html">Shirts</a></li>
-                              <li><a href="womens.html">Sunglasses</a></li>
-                              <li><a href="womens.html">Swimwear</a></li>
-                            </ul>
-                          </div>
+                          <Cart />
                           <div className="col-sm-6 multi-gd-img multi-gd-text ">
                             <a href="womens.html"><img src="images/top1.jpg" alt=" "/></a>
                           </div>
@@ -173,7 +154,7 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-
+    cart: state.cart
   }
 }
 
